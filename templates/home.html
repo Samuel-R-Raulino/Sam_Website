@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="{{ url_for('static', filename='css/estilo.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/dark.css') }}" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='baixados.png') }}">
+    <script src="{{ url_for('static', filename='js/animacaoindex.js') }}" defer></script>
+</head>
+
+<body>
+    
+    <div id="transitionOverlay"></div>
+    <canvas id="bolhasCanvas"></canvas>
+
+        
+
+
+    <div class="pai">
+        
+        <div class="header-background"></div>
+        <div class="banner2">
+            
+        </div>
+
+        <div class="buttonspart">
+            <div class="botoes2">
+                <a class="botao" href="/home"><img class="icon-button" src="../static/img/home-icon.png"
+                        alt="house_icon">Home </a>
+                <a class="botao" href="/games"><img class="icon-button" src="../static/img/game-icon.png"
+                        alt="house_icon"> Games feitos por mim</a>
+                <a class="botao" href="/sites"><img class="icon-button" src="../static/img/game-icon.png"
+                    alt="house_icon"> Sites</a>
+                <a class="botao" href="/sobre"><img class="icon-button" src="../static/img/about-icon.png"
+                        alt="house_icon"> Sobre </a>
+
+                
+            </div>
+        </div>
+
+        <div class="vidro">
+            <div class="barra"></div>
+            <div class="centralizar">
+                <div class="caixa">
+                    Bem vindo(a)
+                </div>
+            </div>
+
+            <br>
+
+            <center>
+                <div class="bannerFrame">
+                    <div class="banner"></div>
+                </div>
+            </center>
+        </div>
+
+        <br>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/ico" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <title>Sobre</title>
+    <link href="{{ url_for('static', filename='css/estilo5.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/upbar.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/dark.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/animacaoindex2.js') }}" defer></script>
+</head>
+<body>
+    <div id="transitionOverlay"></div>
+
+    <canvas id="bolhasCanvas"></canvas>
+    <div class="pai">
+        
+
+        <div class="buttonspart2">
+            <div class="botoes2">
+                <a class="botao" href="/home"><img class="icon-button" src="../static/img/home-icon.png"
+                        alt="house_icon">Home </a>
+                <a class="botao" href="/games"><img class="icon-button" src="../static/img/game-icon.png"
+                        alt="house_icon"> Games feitos por mim</a>
+                <a class="botao" href="/sites"><img class="icon-button" src="../static/img/game-icon.png"
+                    alt="house_icon"> Sites</a>
+                <a class="botao" href="/sobre"><img class="icon-button" src="../static/img/about-icon.png"
+                        alt="house_icon"> Sobre </a>
+
+                    
+            </div>
+        </div>
+
+        <div class="vidro">
+            <div class="centralizar">
+                <br><br>
+                <div class="caixa">
+                    <img id="logoOragameGrande" src="{{ url_for('static', filename='img/oragame.png') }}">
+                    Sobre
+                </div>
+
+                <div class="container">
+                    <div class="esquerda">
+                        <h2> Sobre</h2>
+                        <p>Senho experiencia em programação desde 2019 há quase 7 anos. Iniciei com a programação 
+                           de games, aprendi a sintaxe e a lógica de programação de: Java, C/C++, Javascript, Python e 
+                           GML. Sou adaptável a qualquer tipo de linguagem. Em 2025 liderei e programei a back-end de 
+                           um site chamado "OraGame" por hobbie com meus amigos. Esse site tem uma estética Frutiger 
+                           Aero idealizada por mim, e um sistema de loja de games com comunicação com banco de dados  
+                           feita inteiramente por mim. Tenho um foco especifico em Back-End mas também arranho Front-End.
+                           Meus grandes projetos estão todos nesse site</p>
+
+                        <h2>Contato</h2>
+                        <p>Whatsapp: 47999407203<br>
+                           Instagram: 7xsymphonyx7<br>
+                           Discord: kennedypower777_37452<br>
+                        </p>
+                        <!--
+                        <h2>Atualizações</h2>
+                        <div class="updates-box">
+                            <div class="update-table">
+                                <table class="bordered">
+                                    <tr>
+                                        <td><b>28/05/25</b></td>
+                                        <td>Teste Changelog</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>30.01.25</b></td>
+                                        <td>Teste Changelog 2</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>29.01.25</b></td>
+                                        <td>Teste Changelog 3<td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        -->
+                        <br> <br>
+                        <div class="group_img">
+                            <img id="fundo" src="{{ url_for('static', filename='img/fundo.gif') }}" height="200" width="667" style="border-radius: 15px;">
+                        </div>
+                    </div>
+                    <div class="direita">
+                        <div class="centralizar">
+                        </div>
+                        <div class="group_img">
+                            <center><img src="{{ url_for('static', filename='img/profile-image/profile2.jpg') }}" width="400" height="350">
+                                <br>
+                                <div class="flex-container-5x5">
+                                    
+
+                                    <div class="flex-container-5x5">
+                                        <div class="usuario">
+                                            <a href="{{ url_for('static', filename='user/user.php') }}">Samuel</a>
+                                            <div class="userFrame">
+                                                <img src="{{ url_for('static', filename='img/samuel.png') }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="group_img">
+                                        <img id="fundo" src="{{ url_for('static', filename='img/arcade.gif') }}" height="200" width="667" style="border-radius: 15px;">
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+</body>
+</html>

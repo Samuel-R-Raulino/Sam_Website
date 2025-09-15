@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Games</title>
+
+    <!-- Arquivo CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo3.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/upbar.css') }}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+
+    <!-- Script JS -->
+    <script src="{{ url_for('static', filename='js/animacaoindex2.js') }}" defer></script>
+</head>
+
+<body>
+    <div id="transitionOverlay"></div>
+    <canvas id="bolhasCanvas"></canvas>
+
+    <div class="pai">
+        
+        <div class="buttonspart">
+            <div class="botoes2">
+                <a class="botao" href="/home"><img class="icon-button" src="../static/img/home-icon.png"
+                        alt="house_icon">Home </a>
+                <a class="botao" href="/games"><img class="icon-button" src="../static/img/game-icon.png"
+                        alt="house_icon"> Games feitos por mim</a>
+                <a class="botao" href="/sites"><img class="icon-button" src="../static/img/game-icon.png"
+                    alt="house_icon"> Sites</a>
+                <a class="botao" href="/sobre"><img class="icon-button" src="../static/img/about-icon.png"
+                        alt="house_icon"> Sobre </a>
+
+                
+            </div>
+        </div>
+
+        <div class="vidro">
+            <div class="centralizar">
+                <div class="caixa">
+                    Games
+                </div>
+            </div>
+
+            <div class="games">
+                {% if jogos %}
+                    <div class="games-grid">
+                        {% for nome, imagem in jogos.items() %}
+                        <div class="gameFrame">
+                            <form action="" method="POST">
+                                <input type="hidden" name="game" value="{{ nome }}">
+                                <button type="submit" class="botaoGame">
+                                    {% if contem_https(imagem) %}
+                                        <img src={{imagem}}>
+                                    {% else %}
+                                        <img src="{{ url_for('static', filename='img/' ~ imagem) }}">
+                                    {% endif %}
+                                </button>
+                            </form>
+                            {{ nome }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div style="text-align:center; color:#888; font-size:1.2em;">Nenhum jogo encontrado.</div>
+                {% endif %}
+            </div>
+
+
+        </div>
+
+    </div>
+
+</body>
+<style>
+.games-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
+.gameFrame {
+    flex: 0 1 calc(25% - 24px); /* 4 por linha, com gap */
+    box-sizing: border-box;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media (max-width: 1100px) {
+    .gameFrame { flex: 0 1 calc(33.33% - 24px); }
+}
+@media (max-width: 800px) {
+    .gameFrame { flex: 0 1 calc(50% - 24px); }
+}
+@media (max-width: 500px) {
+    .gameFrame { flex: 0 1 100%; }
+}
+</style>
+
+</html>

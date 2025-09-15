@@ -1,0 +1,149 @@
+:root {
+    --tamanho-vidro:75vw;
+}
+
+/* body já no dark */
+body {
+    background-image: url("../img/dark.png");
+    font-family: 'Courier New', Courier, monospace;
+    color: #790073;
+    background-size: 25%;
+    background-attachment: fixed;
+    border-radius: 20px;
+    margin: 35px;
+    justify-content: center;
+    display: flex;
+    cursor: url("../img/cursor.cur"), auto;
+}
+
+/* Scrollbar já no dark */
+::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000000c9;
+    border: 1px solid #dd53ffc4;
+    box-shadow: 0px 0px 20px 5px #cc00ff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #2c2c2c, #464646);
+    border: 1px solid #dd53ffc4;
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px 5px #cc00ff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #1d1d1d, #444444);
+}
+
+::-webkit-scrollbar-corner {
+    background: #dcdcdc;
+}
+
+/* switchTema já no dark */
+#switchTema {
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    border: 2px solid #dd53ffc4;
+    background: #00000085;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 40px #e100ff85;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s, border 0.3s, box-shadow 0.3s;
+}
+
+/* caixa já no dark */
+.caixa {
+    font-size: 85px;
+    background: linear-gradient(#383838a6 0%, #1c005eb4 50%, #1a0049a8 50%, #303030a9 100%);
+    width: 75%;
+    height: 100%;
+    display: flex;
+    border: 1px solid #dd53ffc4;
+    box-shadow: 0 2px 20px #e100ff85;
+    justify-content: center;
+    align-items: center;
+    color: #790073;
+    text-shadow: black 0 0 10px;
+    padding: 10px;
+}
+
+/* botao já no dark */
+.botao {
+    position: relative;
+    cursor: url("../img/pointer.cur"), auto;
+    min-width: 4vw;
+    justify-content: center;
+    display: flex;
+    padding: 15px;
+    background: linear-gradient(#7a7a7adc 0%, #4c504fdc 50%, #363636c9 50%, #242424c9 100%);
+    font-size: 18px;
+    box-shadow: inset 0px 1px 4px 1px #d711ffe0;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+    text-decoration: none;
+    color: white;
+}
+.botao::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 20px 5px #cc00ff;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+.botao:hover::before {
+    opacity: 1;
+}
+.botao:active {
+    background: linear-gradient(#5e5e5edc 0%, #3e4140dc 50%, #2b2b2bc9 50%, #111111c9 100%);
+}
+
+/* bannerFrame já no dark */
+.bannerFrame {
+    width: 760px;
+    height: 500px;
+    border: 2px solid #d321ff6c;
+    border-radius: 15%/60%;
+    background: #a200ff3a;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 40px #e100ff85;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* banner já no dark */
+.banner {
+    font-size: 85px;
+    background: url("../img/space.gif");
+    opacity: 0.8;
+    background-size: 736px 460px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10%/50%;
+    width: 736px;
+    height: 460px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ecd897;
+    text-shadow: black 0 0 10px;
+    overflow: hidden;
+}

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/ico" href="{{ url_for('static', filename='favicon.ico') }}">
+    <title>Game</title>
+    <link href="{{ url_for('static', filename='css/estilo4.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/upbar.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/dark.css') }}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/animacaoindex2.js') }}" defer></script>
+
+</head>
+
+<body>
+
+    <div id="transitionOverlay"></div>
+    <canvas id="bolhasCanvas"></canvas>
+
+    <div class="pai">
+
+        
+
+        <div class="buttonspart2">
+            <div class="botoes2">
+                    <a class="botao" href="/home"><img class="icon-button" src="../static/img/home-icon.png"
+                        alt="house_icon">Home </a>
+                <a class="botao" href="/games"><img class="icon-button" src="../static/img/game-icon.png"
+                        alt="house_icon"> Games feitos por mim</a>
+                <a class="botao" href="/sites"><img class="icon-button" src="../static/img/game-icon.png"
+                    alt="house_icon"> Sites</a>
+                <a class="botao" href="/sobre"><img class="icon-button" src="../static/img/about-icon.png"
+                        alt="house_icon"> Sobre </a>
+            </div>
+        </div>
+
+        <div class="vidro">
+            <div class="centralizar">
+                <div class="caixa">
+                    <img class="logo">
+                    {{nome}}
+                </div>
+
+                <div class="container">
+                    <div class="esquerda">
+                        <div class="slider-holder">
+                            <div class="slideshow-container">
+
+                                <div class="mySlides fade">
+                                    {% if contem == True %}
+                                    <img src="{{ url_for('static', filename=img1) }}" class="slider-img">
+                                    {% else %}
+                                    <img src={{img1}} style="width: auto; height: 400px;">
+                                    {% endif %}
+                                    <div class="text"> </div>
+                                </div>
+
+                                <br>
+                            </div>
+                            <video controls>
+                            <source src="{{ url_for('static', filename='img/'+video) }}" type="video/mp4">
+                                Seu navegador não suporta vídeos HTML5.
+                            </video>
+                            <style>
+                                video {
+                                width: 80%;       /* largura */
+                                max-width: 800px; /* limite máximo */
+                                border: 3px solid #333;
+                                border-radius: 8px;
+                                display: block;
+                                }
+                            </style>
+                            <br>
+                            <script>
+                                let slideIndex = 1;
+                                showSlides(slideIndex);
+
+                                function plusSlides(n) {
+                                    showSlides(slideIndex += n);
+                                }
+
+                                function currentSlide(n) {
+                                    showSlides(slideIndex = n);
+                                }
+
+                                function showSlides(n) {
+                                    let i;
+                                    let slides = document.getElementsByClassName("mySlides");
+                                    let dots = document.getElementsByClassName("dot");
+                                    if (n > slides.length) { slideIndex = 1 }
+                                    if (n < 1) { slideIndex = slides.length }
+                                    for (i = 0; i < slides.length; i++) {
+                                        slides[i].style.display = "none";
+                                    }
+                                    for (i = 0; i < dots.length; i++) {
+                                        dots[i].className = dots[i].className.replace(" active", "");
+                                    }
+                                    slides[slideIndex - 1].style.display = "block";
+                                    dots[slideIndex - 1].className += " active";
+                                }
+                            </script>
+
+                        </div>
+                    </div>
+                    <div class="direita">
+                                    {% if contem == True %}
+                                    <img class="group_img" src="{{ url_for('static', filename=img3) }}" class="slider-img">
+                                    {% else %}
+                                    <img class="group_img" src={{img3}} style="width: auto; height: 300px;">
+                                    {% endif %}
+                       
+                        <p class="desc">
+                            {{descrição}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+<script>
+function mostrarAviso() {
+    alert('⚠️ Erro: Você precisa logar para adquirir o game');
+}
+// Botão Favoritar/Favorito com estrela
+const favBtn = document.getElementById('favBtn');
+const favText = document.getElementById('favText');
+const starIcon = favBtn.querySelector('.star-icon');
+let isFavorited = false;
+
+favBtn.addEventListener('click', function() {
+    isFavorited = !isFavorited;
+    if(isFavorited) {
+        favText.textContent = 'Favorito';
+        starIcon.innerHTML = '&#9733;'; // estrela preenchida
+        favBtn.classList.add('favorited');
+    } else {
+        favText.textContent = 'Favoritar';
+        starIcon.innerHTML = '&#9734;'; // estrela vazia
+        favBtn.classList.remove('favorited');
+    }
+});
+</script>
+<style>
+.slider-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px #0008;
+    background: #111;
+    display: block;
+}
+.group_img {
+    width: 350px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px #0008;
+    background: #111;
+    display: block;
+    margin: 0 auto 18px auto;
+    position: static;
+}
+.favorite-btn {
+    background: linear-gradient(90deg, #00796b 60%, #1de9b6 100%);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 10px 22px;
+    margin-left: 18px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px #0003;
+    transition: background 0.2s, color 0.2s;
+}
+.favorite-btn .star-icon {
+    font-size: 1.3em;
+    color: #fff700;
+    transition: color 0.2s;
+}
+.favorite-btn.favorited {
+    background: linear-gradient(90deg, #1de9b6 60%, #00796b 100%);
+    color: #fff;
+}
+.favorite-btn.favorited .star-icon {
+    color: #ffd600;
+    text-shadow: 0 2px 8px #ffd60055;
+}
+</style>
+</html>
