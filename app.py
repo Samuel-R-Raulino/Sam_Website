@@ -12,7 +12,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 def redirec():
     session["edit"] = ["GABRIEL","Luan"]
     session["game_buy"] = ""
-    return redirect(url_for("home"))
+    return redirect(url_for("sobre"))
 
 
 @app.route("/addGame",methods=["GET","POST"])
@@ -109,36 +109,6 @@ def edit_game_page():
         
         return render_template("editgame.html", game=game_dict,nome=nome,delete_game = delete_game)
 
-@app.route("/home")
-def home():
-    added = "no"
-    session["img_user"] = "img/user.jpg"
-    
-    if session.get("add",False) == True:
-        from games_bc import add_games
-        if session.get("botao_foi_clicado",False):
-            print("jogo:"+session.get('game', 'Visitante') )
-            print(session.get('username', 'Visitante'))
-            add_games(session.get('username', 'Visitante'),session.get('game', 'Visitante'))
-            added = "yes,yes"
-            ##botao_foi_clicado = False
-        else:
-            added = "yes,no"
-            from games_bc import remove_games 
-            remove_games(session.get("username","Visitante"),session.get("game","Visitante"))
-        session["add"] = False
-        valor_game_buy = session.get("game_buy", "NÃO DEFINIDO")
-        print(f"Valor atual de game_buy na sessão: '{valor_game_buy}'")
-    else:
-        valor_game_buy = session.get("game_buy", "NÃO DEFINIDO")
-    if valor_game_buy == "":
-        print("O valor de game_buy está vazio")
-    else:
-        print("O valor de game_buy NÃO está vazio:", valor_game_buy)
-
-    img_user = session["img_user"] 
-    usuario = session.get('username', 'Visitante') 
-    return render_template("home.html", usuario=usuario, img_user=img_user,added=added)
 @app.route("/sites",methods=["GET","POST"])
 def my_games():
     
@@ -262,10 +232,12 @@ def game():
     requisitos = take[5]
     classificação = take[6]
     video = nome+".mp4"
+    if nome == "Super Mario Farm (Fan Game)":
+        video = "5LyfH_d2_zQ"
+    elif nome == "Super Mario World (Fan Game)":
+        video = "8pZwzUx9Bic"
+    video = "https://www.youtube.com/embed/" + video
     return render_template("game.html",requisitos=requisitos,img3=img3,video=video,nome=nome,preço=preço,descrição=descrição,img1=img1,img2=img2,classificação=classificação,usuario=usuario,img_user=img_user,button_state = session['button_state'],user = session.get('game', 'Visitante'),contem=contem,contem_https=contem_https,users = users)
-
-
-
 
 if __name__ == "__main__":
     app.run(debug=True)

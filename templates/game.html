@@ -24,14 +24,12 @@
 
         <div class="buttonspart2">
             <div class="botoes2">
-                    <a class="botao" href="/home"><img class="icon-button" src="../static/img/home-icon.png"
-                        alt="house_icon">Home </a>
+                <a class="botao" href="/sobre"><img class="icon-button" src="../static/img/about-icon.png"
+                        alt="house_icon"> Sobre </a>
                 <a class="botao" href="/games"><img class="icon-button" src="../static/img/game-icon.png"
                         alt="house_icon"> Games feitos por mim</a>
                 <a class="botao" href="/sites"><img class="icon-button" src="../static/img/game-icon.png"
-                    alt="house_icon"> Sites</a>
-                <a class="botao" href="/sobre"><img class="icon-button" src="../static/img/about-icon.png"
-                        alt="house_icon"> Sobre </a>
+                    alt="house_icon"> Sites</a> 
             </div>
         </div>
 
@@ -58,10 +56,13 @@
 
                                 <br>
                             </div>
-                            <video controls>
-                            <source src="{{ url_for('static', filename='img/'+video) }}" type="video/mp4">
-                                Seu navegador não suporta vídeos HTML5.
-                            </video>
+                                <iframe width="560" height="315" 
+                                        src="{{video}}" 
+                                        title="YouTube video player" 
+                                        frameborder="0" 
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                        allowfullscreen>
+                                </iframe>
                             <style>
                                 video {
                                 width: 80%;       /* largura */

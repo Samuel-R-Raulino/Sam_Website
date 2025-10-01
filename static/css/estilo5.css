@@ -60,32 +60,29 @@
 }
 
 body {
-    background-image: url("../img/fruti.png");
-    font-family: 'Verdana', 'Geneva', 'Tahoma', sans-serif; /* Fallback para fontes */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; /* Garante que a imagem de fundo não se repita */
-    background-attachment: fixed; /* Fixa a imagem de fundo durante a rolagem */
-    border-radius: var(--radius-grande); /* Mantido, embora o efeito visual seja limitado no body */
-    margin: 35px; /* Margem externa do body */
+    background-image: url("../img/dark.png");
+    font-family: 'Courier New', Courier, monospace;
+    color: #790073;
+    background-size: 25%;
+    background-attachment: fixed;
+    border-radius: 20px;
+    margin: 35px;
+    justify-content: center;
     display: flex;
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    align-items: center; /* Centraliza o conteúdo verticalmente (se body tiver min-height) */
-    min-height: calc(100vh - 70px); /* Garante altura mínima para centralização, considerando a margem */
     cursor: url("../img/cursor.cur"), auto;
-    overflow-x: hidden; /* Evita scroll horizontal indesejado */
 }
 
 body.dark-theme {
     background-image: url("../img/dark.png");
-    font-family: 'Verdana', 'Geneva', 'Tahoma', sans-serif; /* Fallback para fontes */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; /* Garante que a imagem de fundo não se repita */
-    background-attachment: fixed; /* Fixa a imagem de fundo durante a rolagem */
-    border-radius: var(--radius-grande); /* Mantido, embora o efeito visual seja limitado no body */
-    margin: 35px; /* Margem externa do body */
+    font-family: 'Courier New', Courier, monospace;
+    color: #790073;
+    background-size: 25%;
+    background-attachment: fixed;
+    border-radius: 20px;
+    margin: 35px;
+    justify-content: center;
     display: flex;
+    cursor: url("../img/cursor.cur"), auto;
     justify-content: center; /* Centraliza o conteúdo horizontalmente */
     align-items: center; /* Centraliza o conteúdo verticalmente (se body tiver min-height) */
     min-height: calc(100vh - 70px); /* Garante altura mínima para centralização, considerando a margem */
